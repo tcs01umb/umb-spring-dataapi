@@ -39,4 +39,9 @@ public class DriverController {
 	{
 		return driverService.removeDriver(id);
 	}
+	@GetMapping("/drivers/hi")
+	public String removeDriver()
+	{
+		return "Hi";
+	}
 }
