@@ -19,6 +19,7 @@ public class MyAccount {
 	private String id;
 	private String type;
 	private String lineOfBusiness;
+	private String location;
 	@Temporal(TemporalType.DATE)
 	private Date effectiveDate;
 	private String monthlyPremium;
@@ -29,6 +30,7 @@ public class MyAccount {
 		this.id = ma.getId();
 		this.type=ma.getType();
 		this.lineOfBusiness=ma.getLineOfBusiness();
+		this.location=ma.getLocation();
 		this.effectiveDate = ma.getEffectiveDate();
 		this.monthlyPremium=ma.getMonthlyPremium();
 	}
@@ -50,6 +52,12 @@ public class MyAccount {
 	}
 	public void setLineOfBusiness(String lineOfBusiness) {
 		this.lineOfBusiness = lineOfBusiness;
+	}
+	public String getLocation() {
+		return location;
+	}
+	public void setLocation(String location) {
+		this.location = location;
 	}
 	public Date getEffectiveDate() {
 		return effectiveDate;
