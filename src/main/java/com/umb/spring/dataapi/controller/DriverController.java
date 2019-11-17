@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.umb.spring.dataapi.models.DriverRO;
 import com.umb.spring.dataapi.service.DriverService;
+import org.springframework.http.ResponseEntity;
 
 @RestController
 public class DriverController {
@@ -15,29 +16,29 @@ public class DriverController {
 	private DriverService driverService;
 	
 	@GetMapping("/drivers/{id}")
-	public DriverRO getDriver(@PathVariable("id") String id)
+	public ResponseEntity<DriverRO> getDriver(@PathVariable("id") String id)
 	{
-		return driverService.getDriver(id);
+		return ResponseEntity.ok().header("Access-Control-Allow-Origin", "*").body(driverService.getDriver(id));
 	}
 	@GetMapping("/drivers")
-	public List<DriverRO> getAllDrivers()
+	public ResponseEntity<List<DriverRO>> getAllDrivers()
 	{
-		return driverService.getAllDrivers();
+		return ResponseEntity.ok().header("Access-Control-Allow-Origin", "*").body(driverService.getAllDrivers());
 	}
 	@PostMapping("/drivers")
-	public String addDriver(@RequestBody DriverRO driver)
-	{
-		return driverService.addDriver(driver);
+	public ResponseEntity<String> addDriver(@RequestBody DriverRO driver)
+	{		
+		return ResponseEntity.status(201).header("Access-Control-Allow-Origin", "*").body(driverService.addDriver(driver));
 	}
 	@PutMapping("/drivers/{id}")
-	public String updateDriver(@RequestBody DriverRO driver,@PathVariable("id") String id)
+	public ResponseEntity<String> updateDriver(@RequestBody DriverRO driver,@PathVariable("id") String id)
 	{
-		return driverService.updateDriver(driver,id);
+		return ResponseEntity.status(204).header("Access-Control-Allow-Origin", "*").body(driverService.updateDriver(driver,id));
 	}
 	@DeleteMapping("/drivers/{id}")
-	public String removeDriver(@PathVariable("id") String id)
+	public ResponseEntity<String> removeDriver(@PathVariable("id") String id)
 	{
-		return driverService.removeDriver(id);
+		return ResponseEntity.status(204).header("Access-Control-Allow-Origin", "*").body(driverService.removeDriver(id));
 	}
 	@GetMapping("/drivers/hi")
 	public String removeDriver()
