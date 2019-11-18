@@ -35,7 +35,7 @@ public class MyAccountController {
 		responseHeaders.set("Access-Control-Allow-Origin", "*");
 		responseHeaders.set("Access-Control-Allow-Credentials", "true");
 		responseHeaders.set("Access-Control-Allow-Methods", "GET,HEAD,DELETE,LINK,PATCH,COPY,OPTIONS,POST,PUT");
-		responseHeaders.set("Access-Control-Allow-Headers", "Authorization,Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
+		responseHeaders.set("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept,Authorization, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
 		return ResponseEntity.ok().headers(responseHeaders).body(myAccountService.getAllMyAccounts());
 	}
 	@PostMapping("/myaccounts")
@@ -45,7 +45,7 @@ public class MyAccountController {
 		responseHeaders.set("Access-Control-Allow-Origin", "*");
 		responseHeaders.set("Access-Control-Allow-Credentials", "true");
 		responseHeaders.set("Access-Control-Allow-Methods", "GET,HEAD,DELETE,LINK,PATCH,COPY,OPTIONS,POST,PUT");
-		responseHeaders.set("Access-Control-Allow-Headers", "Authorization,Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
+		responseHeaders.set("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept,Authorization, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
 		
 		return ResponseEntity.status(201).headers(responseHeaders).body(myAccountService.addMyAccount(myAccount));
 	}
@@ -56,7 +56,7 @@ public class MyAccountController {
 		responseHeaders.set("Access-Control-Allow-Origin", "*");
 		responseHeaders.set("Access-Control-Allow-Credentials", "true");
 		responseHeaders.set("Access-Control-Allow-Methods", "GET,HEAD,DELETE,LINK,PATCH,COPY,OPTIONS,POST,PUT");
-		responseHeaders.set("Access-Control-Allow-Headers", "Authorization,Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
+		responseHeaders.set("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept,Authorization, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
 		return ResponseEntity.status(204).headers(responseHeaders).body(myAccountService.updateMyAccount(myAccount,id));
 	}
 	@DeleteMapping("/myaccounts/{id}")
@@ -66,7 +66,7 @@ public class MyAccountController {
 		responseHeaders.set("Access-Control-Allow-Origin", "*");
 		responseHeaders.set("Access-Control-Allow-Credentials", "true");
 		responseHeaders.set("Access-Control-Allow-Methods", "GET,HEAD,DELETE,LINK,PATCH,COPY,OPTIONS,POST,PUT");
-		responseHeaders.set("Access-Control-Allow-Headers", "Authorization,Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
+		responseHeaders.set("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept,Authorization, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
 		return ResponseEntity.status(204).headers(responseHeaders).body(myAccountService.removeMyAccount(id));
 	}
 	@GetMapping("/myaccounts/hi")
@@ -86,7 +86,7 @@ public class MyAccountController {
 		responseHeaders.set("Access-Control-Allow-Origin", "*");
 		responseHeaders.set("Access-Control-Allow-Credentials", "true");
 		responseHeaders.set("Access-Control-Allow-Methods", "GET,HEAD,DELETE,LINK,PATCH,COPY,OPTIONS,POST,PUT");
-		responseHeaders.set("Access-Control-Allow-Headers", "Authorization,Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
+		responseHeaders.set("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, Authorization,X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
 		return ResponseEntity.status(200).headers(responseHeaders).body("Hi there");
 	}
 }
