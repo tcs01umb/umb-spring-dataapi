@@ -26,7 +26,7 @@ public class MyAccountService {
 		myAccountRepo.findAll().forEach(myAccountList::add);
 		if(myAccountList != null)
 		{
-			for(int i=0;i<myAccountList.size();i++)
+			for(Integer i=0;i<myAccountList.size();i++)
 			{
 				myAccountListRO.add(new MyAccountRO(myAccountList.get(i)));
 			}
@@ -34,7 +34,7 @@ public class MyAccountService {
 		return myAccountListRO;
 		
 	}
-	public MyAccountRO getMyAccount(String id) {
+	public MyAccountRO getMyAccount(Integer id) {
 //		return myAccountListRO.stream().filter(d -> d.getId().equals(id)).findFirst().get();
 		MyAccountRO dr = new MyAccountRO(myAccountRepo.findById(id).get());
 		if (dr != null)
@@ -43,13 +43,13 @@ public class MyAccountService {
 		}
 		return new MyAccountRO();
 	}
-	public String addMyAccount(MyAccountRO myAccount) {
+	public Integer addMyAccount(MyAccountRO myAccount) {
 		myAccountRepo.save(new MyAccount(myAccount));
 		return myAccount.getId();
 	}
-	public String updateMyAccount(MyAccountRO myAccount, String id) {
+	public String updateMyAccount(MyAccountRO myAccount, Integer id) {
 		myAccountRepo.save(new MyAccount(myAccount));
-//		for(int i=0;i<myAccountListRO.size();i++)
+//		for(Integer i=0;i<myAccountListRO.size();i++)
 //		{
 //			MyAccountRO dr = myAccountListRO.get(i);
 //			if(dr.getId().equals(id))
@@ -60,9 +60,9 @@ public class MyAccountService {
 //		}
 //		return "Unable to update id doesn't match myAccount";
 	}
-	public String removeMyAccount(String id) {
+	public String removeMyAccount(Integer id) {
 		myAccountRepo.deleteById(id);
-//		for(int i=0;i<myAccountListRO.size();i++)
+//		for(Integer i=0;i<myAccountListRO.size();i++)
 //		{
 //			MyAccountRO dr = myAccountListRO.get(i);
 //			if(dr.getId().equals(id))

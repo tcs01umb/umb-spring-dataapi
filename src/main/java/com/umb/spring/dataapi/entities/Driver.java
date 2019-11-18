@@ -15,8 +15,8 @@ import java.util.Date;
 @Table(name="DRIVER")
 public class Driver {
 	@Id
-//	@GeneratedValue(strategy = GenerationType.AUTO)
-	private String id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer id;
 	private String firstName;
 	private String lastName;
 	@Temporal(TemporalType.DATE)
@@ -38,10 +38,10 @@ public class Driver {
 		this.licenseNumber=dr.getLicenseNumber();
 		this.licenseState=dr.getLicenseState();
 	}
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getFirstName() {

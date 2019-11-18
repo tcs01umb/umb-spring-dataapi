@@ -18,7 +18,7 @@ public class DriverController {
 	private DriverService driverService;
 	
 	@GetMapping("/drivers/{id}")
-	public ResponseEntity<DriverRO> getDriver(@PathVariable("id") String id)
+	public ResponseEntity<DriverRO> getDriver(@PathVariable("id") Integer id)
 	{
 		HttpHeaders responseHeaders = new HttpHeaders();
 		responseHeaders.set("Access-Control-Allow-Origin", "*");
@@ -38,7 +38,7 @@ public class DriverController {
 		return ResponseEntity.ok().headers(responseHeaders).body(driverService.getAllDrivers());
 	}
 	@PostMapping("/drivers")
-	public ResponseEntity<String> addDriver(@RequestBody DriverRO driver)
+	public ResponseEntity<Integer> addDriver(@RequestBody DriverRO driver)
 	{		
 		HttpHeaders responseHeaders = new HttpHeaders();
 		responseHeaders.set("Access-Control-Allow-Origin", "*");
@@ -48,7 +48,7 @@ public class DriverController {
 		return ResponseEntity.status(201).headers(responseHeaders).body(driverService.addDriver(driver));
 	}
 	@PutMapping("/drivers/{id}")
-	public ResponseEntity<String> updateDriver(@RequestBody DriverRO driver,@PathVariable("id") String id)
+	public ResponseEntity<String> updateDriver(@RequestBody DriverRO driver,@PathVariable("id") Integer id)
 	{
 		HttpHeaders responseHeaders = new HttpHeaders();
 		responseHeaders.set("Access-Control-Allow-Origin", "*");
@@ -58,7 +58,7 @@ public class DriverController {
 		return ResponseEntity.status(204).headers(responseHeaders).body(driverService.updateDriver(driver,id));
 	}
 	@DeleteMapping("/drivers/{id}")
-	public ResponseEntity<String> removeDriver(@PathVariable("id") String id)
+	public ResponseEntity<String> removeDriver(@PathVariable("id") Integer id)
 	{
 		HttpHeaders responseHeaders = new HttpHeaders();
 		responseHeaders.set("Access-Control-Allow-Origin", "*");
@@ -71,5 +71,15 @@ public class DriverController {
 	public String removeDriver()
 	{
 		return "Hi";
+	}
+	@RequestMapping(method=RequestMethod.OPTIONS,value="/drivers")
+	public ResponseEntity<String> drivers()
+	{
+		HttpHeaders responseHeaders = new HttpHeaders();
+		responseHeaders.set("Access-Control-Allow-Origin", "*");
+		responseHeaders.set("Access-Control-Allow-Credentials", "true");
+		responseHeaders.set("Access-Control-Allow-Methods", "GET,HEAD,DELETE,LINK,PATCH,COPY,OPTIONS,POST,PUT");
+		responseHeaders.set("Access-Control-Allow-Headers", "Authorization,Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
+		return ResponseEntity.status(200).headers(responseHeaders).body("Hi there");
 	}
 }

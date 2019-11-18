@@ -5,7 +5,7 @@ import java.util.Date;
 import com.umb.spring.dataapi.entities.Driver;
 
 public class DriverRO {
-	private String id;
+	private Integer id;
 	private String firstName;
 	private String lastName;	
 	private Date dateOfBirth;
@@ -17,7 +17,7 @@ public class DriverRO {
 	public DriverRO() {
 		
 	}
-	public DriverRO(String id,String firstName, String lastName) {
+	public DriverRO(Integer id,String firstName, String lastName) {
 		this.id = id;
 		this.firstName=firstName;
 		this.lastName=lastName;
@@ -32,10 +32,10 @@ public class DriverRO {
 		this.licenseNumber=dr.getLicenseNumber();
 		this.licenseState=dr.getLicenseState();
 	}
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getFirstName() {

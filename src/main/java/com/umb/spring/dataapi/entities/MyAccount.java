@@ -15,8 +15,8 @@ import java.util.Date;
 @Table(name="MYACCOUNT")
 public class MyAccount {
 	@Id
-//	@GeneratedValue(strategy = GenerationType.AUTO)
-	private String id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer id;
 	private String type;
 	private String lineOfBusiness;
 	private String location;
@@ -35,10 +35,10 @@ public class MyAccount {
 		this.monthlyPremium=ma.getMonthlyPremium();
 	}
 	
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getType() {

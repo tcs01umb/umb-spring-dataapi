@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class MyAccountRO {
 //	@GeneratedValue(strategy = GenerationType.AUTO)
-	private String id;
+	private Integer id;
 	private String type;
 	private String lineOfBusiness;
 	private String location;
@@ -23,10 +23,10 @@ public class MyAccountRO {
 		this.effectiveDate = ma.getEffectiveDate();
 		this.monthlyPremium=ma.getMonthlyPremium();
 	}
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getType() {

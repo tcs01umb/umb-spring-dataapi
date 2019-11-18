@@ -26,7 +26,7 @@ public class DriverService {
 		driverRepo.findAll().forEach(driverList::add);
 		if(driverList != null)
 		{
-			for(int i=0;i<driverList.size();i++)
+			for(Integer i=0;i<driverList.size();i++)
 			{
 				driverListRO.add(new DriverRO(driverList.get(i)));
 			}
@@ -34,7 +34,7 @@ public class DriverService {
 		return driverListRO;
 		
 	}
-	public DriverRO getDriver(String id) {
+	public DriverRO getDriver(Integer id) {
 //		return driverListRO.stream().filter(d -> d.getId().equals(id)).findFirst().get();
 		DriverRO dr = new DriverRO(driverRepo.findById(id).get());
 		if (dr != null)
@@ -43,13 +43,13 @@ public class DriverService {
 		}
 		return new DriverRO();
 	}
-	public String addDriver(DriverRO driver) {
+	public Integer addDriver(DriverRO driver) {
 		driverRepo.save(new Driver(driver));
 		return driver.getId();
 	}
-	public String updateDriver(DriverRO driver, String id) {
+	public String updateDriver(DriverRO driver, Integer id) {
 		driverRepo.save(new Driver(driver));
-//		for(int i=0;i<driverListRO.size();i++)
+//		for(Integer i=0;i<driverListRO.size();i++)
 //		{
 //			DriverRO dr = driverListRO.get(i);
 //			if(dr.getId().equals(id))
@@ -60,9 +60,9 @@ public class DriverService {
 //		}
 //		return "Unable to update id doesn't match driver";
 	}
-	public String removeDriver(String id) {
-		driverRepo.deleteById(id);
-//		for(int i=0;i<driverListRO.size();i++)
+	public String removeDriver(Integer id) {
+		driverRepo.deleteById(id);;
+//		for(Integer i=0;i<driverListRO.size();i++)
 //		{
 //			DriverRO dr = driverListRO.get(i);
 //			if(dr.getId().equals(id))
